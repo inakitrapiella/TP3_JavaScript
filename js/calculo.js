@@ -3,19 +3,8 @@ class Calculadora {
         this.operacion = "";
         this.resultado = 0;
         this.operadorAnterior = "";
-        this.historial = [];
-    }
-
-    iniciarCalculadora() {
-        let nombre = prompt("Por favor, ingresa tu nombre:");
-        let edad = parseInt(prompt("Hola " + nombre + ", ¿cuál es tu edad?"));
-
-        while (edad < 18) {
-            alert("Lo siento, debes ser mayor de 18 años para usar la calculadora.");
-            edad = parseInt(prompt("Hola " + nombre + ", ¿cuál es tu edad?"));
-        }
-
-        alert("Bienvenido, " + nombre + "! Ahora puedes usar la calculadora.");
+        this.historial = JSON.parse(localStorage.getItem('historial')) || [];
+        this.cargarHistorialDesdeLocalStorage();
     }
 
     limpiar() {
@@ -63,6 +52,17 @@ class Calculadora {
             operacionParaMostrar.textContent = `Operación ${index + 1}: ${item}`;
             historialDiv.appendChild(operacionParaMostrar);
         });
+
+        this.guardarHistorialEnLocalStorage();
+    }
+
+    guardarHistorialEnLocalStorage() {
+        localStorage.setItem('historial', JSON.stringify(this.historial));
+    }
+
+    cargarHistorialDesdeLocalStorage() {
+        this.historial = JSON.parse(localStorage.getItem('historial')) || [];
+        this.mostrarHistorial();
     }
 
     actualizarDisplay() {
@@ -71,10 +71,6 @@ class Calculadora {
 }
 
 const calculadora = new Calculadora();
-
-document.getElementById("iniciar").addEventListener("click", function() {
-    calculadora.iniciarCalculadora();
-});
 
 document.getElementById("limpiar").addEventListener("click", function() {
     calculadora.limpiar();
@@ -87,7 +83,6 @@ document.getElementById("decimal").addEventListener("click", function() {
 document.getElementById("calcular").addEventListener("click", function() {
     calculadora.calcular();
 });
-
 
 const operadores = document.querySelectorAll(".operador");
 operadores.forEach((operador) => {
@@ -104,3 +99,5 @@ numeros.forEach((numero) => {
         calculadora.agregarNumero(numeroValue);
     });
 });
+
+

@@ -112,18 +112,43 @@ nav ul li a{
 /*Aqui empieza la calculadora*/
 
 main {
+    display: flex;
+    justify-content: center;
+    
     background-color: #0d2033;
 }
 
 .calculadora_iñaki {
-    background-color: #3498db;
+    width: 500px;
+    height: 500px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #404f59;
     border-radius: 10px;
     padding: 20px;
-    margin-left: 40%;
-    margin-right: 40%;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+.historial_operaciones {
+    width: 500px;
+    height: 500px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #343fdb;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.historial_operaciones h2 {
+    color: white;
+    font-size: 30px;
+}
+
 
 h1 {
     color: #ffffff;
@@ -132,13 +157,14 @@ h1 {
 
 #display {
     width: 100%;
+    border-radius: 5px;
     font-size: 30px;
     margin-bottom: 10px;
 }
 
 .botones button {
-    width: 40px;
-    height: 40px;
+    width: 55px;
+    height: 55px;
     font-size: 18px;
     margin: 5px;
     border: none;
@@ -153,8 +179,10 @@ h1 {
 
 .historial {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+
 
 #iniciar {
     background-color: #4CAF50;
