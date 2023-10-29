@@ -40,7 +40,14 @@ class Calculadora {
             this.actualizarDisplay();
             this.historial.push(this.operacion);
             this.mostrarHistorial();
+            this.guardarHistorialEnLocalStorage();
         }
+    }
+
+    eliminarHistorial() {
+        this.historial = [];
+        this.mostrarHistorial();
+        this.guardarHistorialEnLocalStorage();
     }
 
     mostrarHistorial() {
@@ -52,8 +59,6 @@ class Calculadora {
             operacionParaMostrar.textContent = `Operación ${index + 1}: ${item}`;
             historialDiv.appendChild(operacionParaMostrar);
         });
-
-        this.guardarHistorialEnLocalStorage();
     }
 
     guardarHistorialEnLocalStorage() {
@@ -84,6 +89,10 @@ document.getElementById("calcular").addEventListener("click", function() {
     calculadora.calcular();
 });
 
+document.getElementById("limpiarHistorial").addEventListener("click", function() {
+    calculadora.eliminarHistorial();
+});
+
 const operadores = document.querySelectorAll(".operador");
 operadores.forEach((operador) => {
     operador.addEventListener("click", function() {
@@ -100,4 +109,22 @@ numeros.forEach((numero) => {
     });
 });
 
+document.getElementById("obtener-fact").addEventListener("click", () => {
+    fetch("http://numbersapi.com/random/trivia?json")
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.found) {
+                
+                document.getElementById("numero-fact-text").textContent = data.text;
+            } else {
+               
+                document.getElementById("numero-fact-text").textContent = "No se encontró una curiosidad para este número.";
+            }
+        })
+        .catch((error) => {
+            console.error("Error al obtener datos de la API Numbers: " + error);
+        });
+});
 
+
+document.getElementById("obtener-fact").click();

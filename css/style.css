@@ -109,6 +109,8 @@ nav ul li a{
     padding: 10px;
 }
 
+
+
 /*Aqui empieza la calculadora*/
 
 main {
@@ -182,6 +184,24 @@ h1 {
     border-radius: 5px;
 }
 
+.limpiar-historial-btn {
+    background-color: #f00;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.limpiar-historial-btn:hover {
+    background-color: #ff0000;
+}
+
 
 
 #iniciar {
@@ -199,6 +219,42 @@ h1 {
 
 #iniciar:hover {
     background-color: #45a049;
+}
+
+.curiosidades-container {
+    background-color: rgb(90, 37, 164); 
+    padding: 20px; 
+    text-align: center;
+}
+
+.curiosidades-container h2 {
+    color: aquamarine; 
+}
+
+.fact-container {
+    background: rgba(26, 87, 128, 0.2); 
+    border-radius: 10px; 
+    padding: 10px; 
+    margin: 20px 0; 
+}
+
+#numero-fact-text {
+    color: white; 
+}
+
+#obtener-fact {
+    background: aquamarine; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    transition: background 0.3s; 
+}
+
+#obtener-fact:hover {
+    background: #16a085; 
 }
 
 /*Aquie comienza el Footer*/
