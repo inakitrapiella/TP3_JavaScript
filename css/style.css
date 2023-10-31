@@ -204,57 +204,33 @@ h1 {
 
 
 
-#iniciar {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 10px 20px;
+/* Agregar diseño a la sección de chistes */
+#chistes {
+    background-color: #F6D9A0;
     text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+#chiste {
+    font-size: 20px;
+    margin: 20px 0;
+}
+
+#obtenerChiste {
+    background-color: #8e8cd0;
+    color: #fdfdfd;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
-#iniciar:hover {
-    background-color: #45a049;
-}
-
-.curiosidades-container {
-    background-color: rgb(90, 37, 164); 
-    padding: 20px; 
-    text-align: center;
-}
-
-.curiosidades-container h2 {
-    color: aquamarine; 
-}
-
-.fact-container {
-    background: rgba(26, 87, 128, 0.2); 
-    border-radius: 10px; 
-    padding: 10px; 
-    margin: 20px 0; 
-}
-
-#numero-fact-text {
-    color: white; 
-}
-
-#obtener-fact {
-    background: aquamarine; 
-    color: white; 
-    padding: 10px 20px; 
-    border: none; 
-    border-radius: 5px; 
-    cursor: pointer; 
-    font-weight: bold; 
-    transition: background 0.3s; 
-}
-
-#obtener-fact:hover {
-    background: #16a085; 
+#obtenerChiste:hover {
+    background-color: #f5168d;
+    color: #fff;
 }
 
 /*Aquie comienza el Footer*/

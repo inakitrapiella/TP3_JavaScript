@@ -109,22 +109,20 @@ numeros.forEach((numero) => {
     });
 });
 
-document.getElementById("obtener-fact").addEventListener("click", () => {
-    fetch("http://numbersapi.com/random/trivia?json")
-        .then((response) => response.json())
-        .then((data) => {
-            if (data.found) {
-                
-                document.getElementById("numero-fact-text").textContent = data.text;
-            } else {
-               
-                document.getElementById("numero-fact-text").textContent = "No se encontró una curiosidad para este número.";
-            }
-        })
-        .catch((error) => {
-            console.error("Error al obtener datos de la API Numbers: " + error);
-        });
-});
+const obtenerChiste = async () => {
+    try {
+        const response = await fetch("https://v2.jokeapi.dev/joke/Any");
+        const data = await response.json();
+        const chisteDiv = document.getElementById("chiste");
 
+        if (data.type === "single") {
+            chisteDiv.textContent = data.joke;
+        } else if (data.type === "twopart") {
+            chisteDiv.textContent = `${data.setup} ${data.delivery}`;
+        }
+    } catch (error) {
+        console.error("Error al obtener el chiste", error);
+    }
+};
 
-document.getElementById("obtener-fact").click();
+document.getElementById("obtenerChiste").addEventListener("click", obtenerChiste);
